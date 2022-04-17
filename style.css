@@ -1,23 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap');
+body{
+    font-family: 'Roboto', sans-serif;
+}
+html{
+    font-size: 62.5%;
+}
 .container{
     display: grid;
     height: 100vh;
-    grid-gap: 5px;
+    grid-gap: 1rem;
 }
+
+
+
 header{
     grid-column: 1/6;
-    border: 1px solid black;
+    height: 10rem;
 }
+.head-container{
+    margin-top: 1rem;
+    display: flex;
+    padding: 2rem;
+    height: fit-content;
+}
+.head-left{
+    margin-right: auto; 
+    font-size: 3rem;
+    font-weight:bold;
+}
+.home-link{
+    text-decoration: none;
+    color: #51087E;
+}
+.head-middle{
+    align-items: center;
+    font-size: 2rem;
+}
+.searchbar{
+    padding: 0.3rem;
+    width: 30rem;
+}
+.head-right{
+    margin-left: auto;
+    display: flex; 
+    gap: 2rem;
+    font-size: 2rem;
+}
+
+
+
+
 aside{
     grid-column: 1/2;
-    grid-row: 2/7;
-    border: 1px solid black;
+    grid-row: 2/6;
+    height: 60rem;
+    width: 30rem;
 }
+
+.drawer-container{
+    height: 53rem;
+    width: 30rem;
+    border-radius: 4px;
+    background-color: white;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.2), 0 4px 15px 0 rgba(0, 0, 0, 0.19);
+    display: flex;
+    flex-direction: column;
+}
+.head{
+    margin-top: 2rem;
+    margin-left: 2rem;
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+.subhead{
+    margin-top: 1rem;
+    margin-left: 2.5rem;
+    font-size: 1.5rem;
+}
+.inbox{
+    text-align: left;
+    padding: 2rem;
+    border-radius: 5px;
+    margin: 0.5rem;
+    font-size: 1.6rem;
+    
+}
+.inbox:hover{
+    background-color: #FAFAD2;
+    color: #FFA700;
+}
+.inb{
+    margin-left: 40px;
+}
+.bottom{
+    display:flex;
+    flex-direction: column;
+}
+
+
+
+
+
+
+
+
+
+
+
 main{
     grid-column: 2/6;
-    grid-row: 2/7;
+    grid-row: 2/6;
     border: 1px solid black;
+    height: 60rem;
+    width: 118.5rem;
 }
+
+/** Footer **/
 footer{
     grid-column: 1/6;
-    border: 1px solid black;
+    height: 10rem;
+    padding-inline-start:0px;
+    font-size: 2rem;
+    text-align: center;
+}
+.list-non-bullet{
+    list-style:none;
+}
+.list-inline{
+    display:inline;
+    padding:1rem 1rem;
 }
