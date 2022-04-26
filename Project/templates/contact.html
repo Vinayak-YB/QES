@@ -1,0 +1,125 @@
+{% load staticfiles %}
+<!--DOCTYPE html-->
+<html>
+  <head>
+    <title>Contact</title>
+    <link rel="stylesheet" href='{% static "css/index.css" %}' />
+    <link rel="stylesheet" href='{% static "css/contact.css" %}' />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="icon" href="{% static 'image/favicon.ico' %}" />
+  </head>
+
+  <body>
+    <div class="navbar">
+		<div class="logo">
+			<a href="{% url "home" %}">
+				<img src='{% static "image/logo.png" %}' style="width: 230px; margin-top: 10px;" />
+			</a>
+		</div>
+		<div class="search">
+		</div>
+		<div class="navlinks">
+			<h6><a href="{% url "home" %}">Home</a></h6> <h6 style="width: 30%;"><a href="{% url "create" %}">Ask a Question</a></h6> <h6><a href="{% url "profile" id=profile.id %}">Profile</a></h6> <h6><a href="{% url "user" %}">Users</a></h6> <h6><a href="{% url "contact" %}">Contact</a></h6>
+		</div>
+		<div class="login" style="font-size: 15px;">
+			{% if request.user.is_authenticated %}
+			<p><a href="{% url "logout" %}"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></p>
+			{% else %}
+			<p><a href="{% url "login" %}"><i class="fa fa-sign-in" aria-hidden="true"></i> Log in / Register</a></p>
+			{%endif %}
+		</div>
+	</div>
+
+	<div class="main">
+		<div class="links">
+		<div id="ask-cont">
+		<a href="{% url "create" %}" style="text-decoration: none;"><p class="ask"><i class="fa fa-plus" aria-hidden="true"></i>&nbsp Ask a Question</p></a>
+		</div>
+		{% if request.user.is_authenticated %}
+		<p style="color: #3498db;text-align: center;">Hey, {{ request.user }} !!</p>
+		{% if profile.image %}
+		<img src='{{ profile.image.url }}' id="image1"/>
+		{% else %}
+		<img src='{% static "image/default_user.png" %}' id="image1"/>
+		{% endif %}
+		<div class="rank">
+		<p style="background-color: #3498db; border:none;color: white">Amateur</p>
+		<p {% if profile.points >= 100 %}
+		style="background-color: #1abc9c; border:none;color:white;" 
+		{% endif %}>Trainee</p>
+		<p {% if profile.points >= 1000 %}
+		style="background-color: gold; border:none;" 
+		{% endif %}>Professor</p>
+		<p {% if profile.points >= 2000 %}
+		style="background-color: red; border:none;color:white;" 
+		{% endif %}>Legend</p>
+		<div id="myProgress">
+			<h6 style="float: left;margin-left: 35%;margin-top: 2px;">{{ val }}</h6>
+		  <div id="myBar" style="width: {{ percent }}%"></div>
+		</div>
+		</div>
+		
+		{% endif %}
+		
+
+		</div>
+		
+		<div class="content">
+			<table style="width: 100%;border-spacing: 0px;min-height: 100%;">
+				<tr>
+			<td style="width:100%; float: left;">
+				<div class="heading">
+					<div class="tab">
+						<p>Contact us</p>	
+					</div>
+				</div>
+		</div>
+		
+		  <div class="container">
+			<div class="content">
+			  <div class="left-side">
+				<div class="address details">
+				  <i class="fas fa-map-marker-alt"></i>
+				  <div class="topic">Address</div>
+				  <div class="text-one">KLE MSSCET</div>
+				  <div class="text-two">Belgaum, Karnataka</div>
+				</div>
+				<div class="phone details">
+				  <i class="fas fa-phone-alt"></i>
+				  <div class="topic">Phone</div>
+				  <div class="text-one">+91 6360262475</div>
+				  <div class="text-two">+91 12345678</div>
+				</div>
+				<div class="email details">
+				  <div class="topic">Email</div>
+				  <div class="text-one">contact@qnaengineers.com.com</div>
+				  <div class="text-two">admin@@qnaengineers.com</div>
+				</div>
+			  </div>
+			  <div class="right-side">
+				<div class="topic-text">Send us a message</div>
+				<p>If you have any doubts or queries about our website, feel free to contact us.</p>
+			  <form action="#">
+				<div class="input-box">
+				  <input type="text" placeholder="Enter your name">
+				</div>
+				<div class="input-box">
+				  <input type="text" placeholder="Enter your email">
+				</div>
+				<div class="input-box message-box">
+					<textarea placeholder="Enter your message"></textarea>
+				</div>
+				<div class="button">
+				  <input type="button" value="Send Now" >
+				</div>
+			  </form>
+			</div>
+			</div>
+		  </div>
+		
+	</div>
+  </body>
+</html>
